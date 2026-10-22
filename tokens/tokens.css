@@ -1,0 +1,56 @@
+/**
+ * CSS custom properties mirroring /tokens/*.ts — for any consumer that
+ * isn't using the Tailwind config directly (e.g. plain CSS overrides,
+ * or reading a color in JS via getComputedStyle). This file is generated
+ * by hand to match the token source files; if you change a token in the
+ * .ts files, update this file too.
+ */
+:root {
+  /* Neutrals */
+  --sporte-color-white: #ffffff;
+  --sporte-color-background: #f8f9fa;
+  --sporte-color-grey-100: #f3f4f6;
+  --sporte-color-grey-300: #99a1af;
+  --sporte-color-grey-400: #9ca3af;
+  --sporte-color-grey-600: #6a7282;
+  --sporte-color-grey-700: #4a5565;
+  --sporte-color-grey-900: #101828;
+
+  /* Brand — #327907 replaces Figma's literal #3F9B0B everywhere, see tokens/colors.ts */
+  --sporte-color-primary: #327907;
+  --sporte-color-primary-tint: #e8f2e1;
+  --sporte-color-primary-hover: #1ba9e6;
+  --sporte-color-primary-active: #0e5878;
+  --sporte-color-primary-hover-tint: rgba(50, 121, 7, 0.1);
+
+  /* Accents */
+  --sporte-color-accent-blue: #1ba9e6;
+  --sporte-color-accent-blue-tint: rgba(27, 169, 230, 0.1);
+  --sporte-color-accent-purple: #472ce0;
+  --sporte-color-accent-purple-tint: #dee7ff;
+  --sporte-color-accent-pink: #f2536d;
+
+  /* Semantic */
+  --sporte-color-success: #327907;
+  --sporte-color-success-tint: #e8f2e1;
+  --sporte-color-warning: #e17100;
+  --sporte-color-warning-tint: #fef3c6;
+  --sporte-color-error: #c10007;
+  --sporte-color-error-tint: #ffe2e2;
+  --sporte-color-error-hover: #a30006;
+  --sporte-color-error-active: #870005;
+  --sporte-color-info: #0a84ff;
+  --sporte-color-info-tint: #f3f4f6;
+
+  /* Radii */
+  --sporte-radius-none: 0px;
+  --sporte-radius-xs: 4px;
+  --sporte-radius-sm: 8px;
+  --sporte-radius-md: 12px;
+  --sporte-radius-lg: 16px;
+  --sporte-radius-full: 9999px;
+
+  /* Shadows */
+  --sporte-shadow-xs: 0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --sporte-shadow-brand: 0px 2px 6px 2px rgba(50, 121, 7, 0.15), 0px 1px 2px 0px rgba(50, 121, 7, 0.3);
+}
