@@ -57,7 +57,7 @@ export const Colors: Story = {
       </Section>
       <Section title="Brand">
         <p className="mb-3 text-sm text-grey-600">
-          <code>primary</code> (#327907) replaces Figma's literal green swatch (#3F9B0B) everywhere in this
+          <span className="font-medium text-grey-900">primary</span> (#327907) replaces Figma's literal green swatch (#3F9B0B) everywhere in this
           system — the literal value failed WCAG AA contrast as text/fill with white. Hover/active are the
           system's blue interaction color, not a darkened green — see the Button docs for the full history.
         </p>

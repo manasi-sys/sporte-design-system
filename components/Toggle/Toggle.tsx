@@ -42,7 +42,9 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(function Toggle(
             "bg-grey-400",
             "peer-checked:bg-primary",
             "peer-focus-visible:ring-2 peer-focus-visible:ring-primary peer-focus-visible:ring-offset-2",
-            "peer-disabled:bg-grey-100",
+            // Pale fill + grey outline, same as the disabled Checkbox/Radio — a
+            // bare grey100 track vanishes against the page background.
+            "peer-disabled:bg-grey-100 peer-disabled:ring-1 peer-disabled:ring-inset peer-disabled:ring-grey-300",
           )}
         />
         <span
@@ -55,7 +57,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(function Toggle(
         />
       </span>
       {label && (
-        <span className={clsx("font-sans text-[14px] leading-[22px] tracking-[-0.43px] text-grey-900", disabled && "text-grey-400")}>
+        <span className={clsx("font-sans text-[14px] leading-[22px] tracking-[-0.43px]", disabled ? "text-grey-300" : "text-grey-900")}>
           {label}
         </span>
       )}

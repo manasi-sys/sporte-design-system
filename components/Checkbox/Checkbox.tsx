@@ -48,14 +48,18 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
             "peer-disabled:border-grey-300 peer-disabled:bg-grey-100",
           )}
         />
+        {/* Deliberate exception to the usual size-scaled icon weight (which would
+            give ~167 at 20px): a thin checkmark was hard to see on the green
+            fill, so it's pinned heavier, at Figma's 20px check_small size. */}
         <Icon
           name="check"
-          size={16}
-          className="pointer-events-none relative text-white opacity-0 peer-checked:opacity-100"
+          size={20}
+          weight={500}
+          className="pointer-events-none relative text-white opacity-0 peer-checked:opacity-100 peer-disabled:text-grey-400"
         />
       </span>
       {label && (
-        <span className={clsx("font-sans text-[14px] leading-[22px] tracking-[-0.43px] text-grey-900", disabled && "text-grey-400")}>
+        <span className={clsx("font-sans text-[14px] leading-[22px] tracking-[-0.43px]", disabled ? "text-grey-300" : "text-grey-900")}>
           {label}
         </span>
       )}

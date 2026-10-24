@@ -12,10 +12,11 @@ const meta: Meta<typeof RadioButton> = {
 Same accessible pattern as Checkbox — a real \`<input type="radio">\`
 visually hidden under a styled circle, driven by \`peer-*\` variants.
 
-**Fidelity note:** Figma's checked radio uses grey for both the ring and
-inner dot, not the brand green Checkbox uses when checked. This reproduces
-that exactly. If that was meant to be green (to match Checkbox), flag it —
-happy to change once confirmed.
+**Deviation from Figma:** Figma draws the checked radio's ring and dot in
+grey, while its checked Checkbox is green. Grey made a selected radio look
+disabled, so the checked state is brand green here, matching Checkbox. The
+unchecked ring is near-black (grey900) rather than Figma's grey700, and a disabled
+radio's label turns the same pale grey as its ring.
 
 ### Usage
 

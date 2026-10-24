@@ -10,5 +10,7 @@ export * from "./components/Card";
 export * from "./components/Badge";
 export * from "./components/NavItem";
 export * from "./components/Tabs";
+export * from "./components/Modal";
+export * from "./components/GradientBackground";
 
 import "./index.css";

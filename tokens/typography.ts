@@ -1,20 +1,21 @@
 /**
- * Typography tokens — exact scale from the "Typography & color" frame
- * (node 53:23). Figma specifies the font as "SF Pro" with variable-axis
- * weights (400 / 510 / 590). SF Pro isn't a licensed web font, so weights
- * are mapped to the nearest standard CSS weights (400 / 500 / 600) and the
- * family falls back through the native system-UI stack so every platform
- * renders its own equivalent system font — this is the only non-literal
- * adaptation in this file; every size/line-height/letter-spacing value
- * below is copied exactly from Figma.
+ * Typography tokens — size/line-height/letter-spacing scale from the
+ * "Typography & color" frame (node 53:23).
+ *
+ * The font is **Inter** (self-hosted via @fontsource-variable/inter, so no
+ * CDN dependency and identical rendering on every platform), by explicit
+ * request — Figma's file was drawn in SF Pro. The scale below is still
+ * Figma's exact numbers, which were tuned for SF Pro: Inter is slightly
+ * wider, so the negative letter-spacing values (-0.43px etc.) may want a
+ * second look once Figma is updated to Inter too.
  */
 
 export const fontFamily = {
   sans: [
+    "Inter Variable",
+    "Inter",
     "-apple-system",
     "BlinkMacSystemFont",
-    "SF Pro Text",
-    "SF Pro Display",
     "Segoe UI",
     "Roboto",
     "Helvetica Neue",
@@ -23,10 +24,12 @@ export const fontFamily = {
   ].join(", "),
 } as const;
 
+// Inter ships real 400/500/600 weights, so the old SF Pro 510/590 → 500/600
+// rounding is no longer an approximation, just a straight mapping.
 export const fontWeight = {
   regular: 400,
-  medium: 500, // Figma "Medium" (510)
-  semibold: 600, // Figma "Semibold" (590)
+  medium: 500,
+  semibold: 600,
 } as const;
 
 /**

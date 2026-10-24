@@ -1,0 +1,102 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Guidelines/Mobile" />
+
+# Mobile guidelines
+
+<div style={{ background: "#FEF3C6", border: "1px solid #E17100", borderRadius: 12, padding: "12px 16px", margin: "16px 0" }}>
+  **Draft for review.** Figma only defines the desktop layout (1440px), so nothing on this page comes from the Figma file.
+  It's built from how the components actually measure today and from platform standards (Apple 44pt, Material 48dp,
+  WCAG 2.2). Anything marked **Decision** needs design sign-off before it's built.
+</div>
+
+The components, tokens, font (Inter) and icons (Material Symbols) are the same on a phone. What changes is how they're
+sized, laid out and touched. "Phone" below means any screen narrower than **640px** (the `sm` breakpoint).
+
+## 1. What changes on a phone
+
+- **Fingers, not a cursor.** There's no hover, and a finger needs a much bigger target than a mouse pointer.
+- **One column.** Little room, so content stacks and the main action stays within thumb reach.
+- **The phone's own UI.** A notch at the top and a home bar at the bottom can cover content.
+- **The user's text size.** People enlarge text in their phone settings, and layouts must cope with it.
+
+## 2. Touch targets
+
+Every tappable thing needs a tap area of at least **44 × 44px** (48px where there's room) with at least **8px** between
+neighbours. The tap area can be bigger than what's drawn.
+
+<table>
+  <thead>
+    <tr><th>Component</th><th>Measured today (at 390px wide)</th><th>On a phone</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Button</td><td>44px tall</td><td>Fine as is</td></tr>
+    <tr><td>Text input, Select</td><td>46px tall</td><td>Fine as is</td></tr>
+    <tr><td>Nav item</td><td>46px tall</td><td>Fine as is</td></tr>
+    <tr><td>Tab</td><td>59px tall</td><td>Fine as is</td></tr>
+    <tr><td>Checkbox</td><td>row is 24px tall</td><td>Make the whole row at least 44px tall (the box itself can stay 24px)</td></tr>
+    <tr><td>Radio</td><td>row is 22px tall</td><td>Same: row at least 44px tall</td></tr>
+    <tr><td>Toggle</td><td>row is 22px tall</td><td>Same: row at least 44px tall</td></tr>
+    <tr><td>Modal close button</td><td>40 × 40px</td><td>Raise to 44 × 44px</td></tr>
+    <tr><td>Icon-only buttons (password eye, "more" dots)</td><td>24px icon</td><td>Keep the 24px icon inside a 44 × 44px tap area</td></tr>
+  </tbody>
+</table>
+
+## 3. Typography
+
+- **Inputs use 16px text on a phone** (they're 14px today). Below 16px, iPhone Safari zooms the page in when a field
+  is tapped. This one isn't optional for web.
+- **Nothing smaller than 12px.** The two 11px caption styles are fine for desktop but too small to rely on a phone.
+- **Body text is 16px for reading**; 14px is acceptable only for dense secondary lists. **Decision**
+- **Size text in rem, not px**, so it follows the user's text-size setting. The components use px today.
+- Inter and the existing weights stay as they are.
+
+## 4. Layout and spacing
+
+- **Page gutters are 16px**, the same as card padding. Use the existing spacing scale (4, 8, 12, 16, 24).
+- **Stack everything in one column.** Cards go full width. Stat cards can sit two across at most.
+- **Keep clear of the notch and home bar** by adding the device's safe-area padding to top and bottom bars.
+- **Put the main action where a thumb reaches**: at the bottom, in a sticky footer, not top-right.
+
+## 5. How each component adapts
+
+- **Sidebar (NavItem)** becomes a **bottom tab bar** for the 3 to 5 main destinations, with a "More" drawer for the
+  rest. Collapsible groups become a list screen inside that drawer. **Decision**
+- **Tabs** must scroll sideways on a phone. The five-tab example is 797px wide today and **currently overflows a
+  phone screen without scrolling**, so this needs building. The active tab should scroll into view.
+- **Modal** becomes a **bottom sheet** (slides up, full width, 16px rounded top corners) for short tasks, or goes
+  **full screen** for forms. Confirm dialogs stay centred with 16px side gutters. **Decision**
+- **Buttons** go full width in forms and footers. When two sit together, stack them with the main one on top.
+- **Card** stacks full width. **Tables** become a list of Cards, one per row (there's no table component yet).
+- **Inputs** go one per row with the label above (already so). Set the right keyboard (email, phone, number).
+  The Select already uses the phone's native picker, which is the right choice.
+- **GradientBackground**: its shapes are fixed at 520 × 624px and 390 × 468px, so on a 390px-wide phone each one
+  is about as large as the whole screen. Scale them down (about 60%) or hide them on a phone. **Decision**, and it needs building.
+- **Badge** is non-interactive and needs no change.
+
+## 6. Touch behaviour
+
+- **No hover.** Never hide information or actions behind it. Wrap hover styles so they only apply on devices that
+  have a mouse, otherwise the hover colour (including the blue primary-button hover) can stay stuck after a tap.
+- **Pressed state is the touch feedback.** Buttons already have one. Add a pressed style (the blue 10% tint) to nav
+  items and list rows. Feedback should show within about 100ms.
+- **Keep focus rings.** They still matter for external keyboards and switch controls.
+- **Don't make swipe the only way** to do something. Offer a visible button as well.
+- **Respect "reduce motion"** for sheet and drawer animations.
+
+## 7. Accessibility on a phone
+
+- **Contrast matters more outdoors.** Avoid putting mid-grey (`grey-600`) small text straight on the gradient, and
+  keep the known low-contrast spots (the primary button hover) away from anything critical.
+- **Text must survive 200% scaling.** Labels wrap rather than clip, and nothing sits at a fixed height.
+- **Screen readers** (VoiceOver, TalkBack) already get proper labels from the components. The Modal uses the
+  browser's native dialog, which they support.
+
+## Open decisions
+
+1. Bottom tab bar plus "More" drawer for the sidebar on a phone?
+2. Modals as bottom sheets, or full-screen for forms?
+3. Body text at 16px on a phone, or keep 14px?
+4. Gradient shapes: scale down, or hide on a phone?
+5. Build the missing pieces (scrolling Tabs, larger tap rows, 44px close button, hover-only-on-mouse, 16px phone
+   inputs)? None of these exist yet.
