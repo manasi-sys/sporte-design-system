@@ -28,7 +28,7 @@ modal dialog — no custom focus-trap code to maintain.
 ### Usage
 
 \`\`\`tsx
-import { Modal, Button } from "@weblabs/sporte-design-system";
+import { Modal, Button } from "@manasi-sys/sporte-design-system";
 
 const [open, setOpen] = useState(false);
 

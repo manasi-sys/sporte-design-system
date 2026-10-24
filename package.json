@@ -1,5 +1,5 @@
 {
-  "name": "@weblabs/sporte-design-system",
+  "name": "@manasi-sys/sporte-design-system",
   "version": "0.1.0",
   "description": "SportE shared design system — React components, design tokens, and Storybook docs consumed by all SportE products.",
   "type": "module",
@@ -12,7 +12,8 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./styles.css": "./dist/styles.css"
+    "./styles.css": "./dist/styles.css",
+    "./fonts.css": "./dist/fonts.css"
   },
   "files": [
     "dist"
@@ -22,11 +23,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/weblabs/sporte-design-system.git"
+    "url": "git+https://github.com/manasi-sys/sporte-design-system.git"
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "tsc -p tsconfig.build.json && vite build",
+    "build": "tsc -p tsconfig.build.json && vite build && node scripts/build-fonts.mjs",
     "build-storybook": "storybook build",
     "lint": "eslint . --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",

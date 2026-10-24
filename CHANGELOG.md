@@ -31,6 +31,11 @@ major version, new backwards-compatible features bump minor, fixes bump patch.
 - Button hover/active corrected to match Figma's actual "Hover" variant: Primary hovers to the *exact* literal `#1BA9E6` fill with white text — a known, accepted WCAG AA contrast failure (2.67:1); an AA-safe darker blue and a dark-text-on-hover alternative were both tried and reverted per feedback in favor of exact Figma fidelity.
 - Secondary and Ghost hover changed to wash to their own green at 10% opacity (`rgba(50, 121, 7, 0.1)`) instead of the blue tint, since both already read as green buttons at rest. The blue-at-10%-opacity convention still applies to table rows and list items (not built yet).
 
+### Fixed (build and publishing)
+- Package renamed from `@weblabs/sporte-design-system` to `@manasi-sys/sporte-design-system`: GitHub Packages only accepts a scope that matches the repo owner (`manasi-sys`). Update the README install steps and story imports accordingly. If the repo later moves to a `weblabs` GitHub organisation, the name can change back before the first release.
+- `dist/styles.css` was ~5.6 MB because Vite's library mode inlined the Material Symbols font and every Inter subset as base64. Fonts now ship as files in `dist/fonts` (copied by `scripts/build-fonts.mjs` after `vite build`) and are linked from `dist/fonts.css`; `styles.css` is ~22 kB and imports it. Only the Inter weight-axis files (7 language subsets, loaded on demand by `unicode-range`) and Material Symbols Outlined are shipped. Storybook loads the fonts from the new root `fonts.css`.
+- `package.json` exported `./styles.css` but the build wrote `dist/style.css`, so the documented import would not resolve. The build now writes `dist/styles.css`, and `./fonts.css` is exported too.
+
 ### Fixed (Storybook config)
 - Tokens Overview page was silently broken: `.storybook/main.ts`'s stories glob only matched `tokens/**/*.mdx`, so `TokensOverview.stories.tsx` never appeared in the sidebar at all, and `tailwind.config.js`'s `content` glob never scanned `tokens/`, so none of that page's Tailwind classes were ever generated (swatches were collapsing to ~2px). Both globs now include `tokens/`.
 
@@ -49,5 +54,4 @@ major version, new backwards-compatible features bump minor, fixes bump patch.
 - Disabled Toggle was almost invisible (a `grey100` track on a near-identical page background). The disabled track now has a pale-grey outline, matching the disabled Checkbox and RadioButton.
 
 ### Known issues
-- **Not yet publishable as-is** (found on the first real `npm run build`, to fix in the publishing step): (1) `dist/style.css` is ~5.6 MB because the build inlines the Material Symbols font (3.8 MB) and every Inter language subset into the CSS as base64; (2) `package.json` exports `./styles.css`, but the build actually writes `dist/style.css`, so the import path in the README wouldn't resolve.
 - Primary button hover (`#1BA9E6` with white text) fails WCAG AA contrast (2.67:1, needs 4.5:1). Accepted deliberately — see `tokens/colors.ts` (`brand.primaryHover`) before changing this again.

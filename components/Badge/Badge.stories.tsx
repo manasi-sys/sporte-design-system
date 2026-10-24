@@ -22,7 +22,7 @@ and Error's literal colors already pass AA and are used as-is.
 ### Usage
 
 \`\`\`tsx
-import { Badge } from "@weblabs/sporte-design-system";
+import { Badge } from "@manasi-sys/sporte-design-system";
 
 <Badge variant="success">Active</Badge>
 <Badge variant="error" icon={<Icon name="error" size={14} />}>Failed</Badge>

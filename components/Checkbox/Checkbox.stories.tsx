@@ -20,7 +20,7 @@ everywhere, replacing Figma's literal #3F9B0B swatch.
 ### Usage
 
 \`\`\`tsx
-import { Checkbox } from "@weblabs/sporte-design-system";
+import { Checkbox } from "@manasi-sys/sporte-design-system";
 
 <Checkbox label="Send me product updates" />
 \`\`\`

@@ -20,7 +20,7 @@ hover color).
 ## Install
 
 This package publishes to **GitHub Packages** (npm registry `npm.pkg.github.com`),
-scoped to the org so all five product repos can install it like any other
+scoped to the `@manasi-sys` GitHub account (a package scope must match the repo owner) so all five product repos can install it like any other
 npm dependency and independently control when they upgrade.
 
 1. Authenticate to GitHub Packages once per machine/CI runner — add to `~/.npmrc`:
@@ -32,21 +32,25 @@ npm dependency and independently control when they upgrade.
 2. In the consuming product repo's `.npmrc`, scope the package to this registry:
 
    ```
-   @weblabs:registry=https://npm.pkg.github.com
+   @manasi-sys:registry=https://npm.pkg.github.com
    ```
 
 3. Install:
 
    ```bash
-   npm install @weblabs/sporte-design-system
+   npm install @manasi-sys/sporte-design-system
    ```
 
 4. Import the stylesheet once, at your app's entry point, alongside components:
 
    ```tsx
-   import "@weblabs/sporte-design-system/styles.css";
-   import { Button } from "@weblabs/sporte-design-system";
+   import "@manasi-sys/sporte-design-system/styles.css";
+   import { Button } from "@manasi-sys/sporte-design-system";
    ```
+
+   The stylesheet links the Inter and Material Symbols font files shipped in the package
+   (`dist/fonts`), so your bundler must be able to resolve CSS `@import` and `url()`
+   (Vite, webpack and Next.js all do). No CDN is used.
 
 ## Versioning
 

@@ -35,7 +35,7 @@ valid 100–700 range. Pass an explicit \`weight\` to override this.
 ### Usage
 
 \`\`\`tsx
-import { Icon } from "@weblabs/sporte-design-system";
+import { Icon } from "@manasi-sys/sporte-design-system";
 
 <Icon name="add" />
 <Icon name="delete" size={20} />

@@ -23,7 +23,7 @@ on top of it with ordinary flex/grid markup.
 ### Usage
 
 \`\`\`tsx
-import { Card } from "@weblabs/sporte-design-system";
+import { Card } from "@manasi-sys/sporte-design-system";
 
 <Card>
   <h3>Plain content</h3>

@@ -23,7 +23,7 @@ this system, since a nav row is the same kind of element.
 ### Usage
 
 \`\`\`tsx
-import { NavItem, NavSubItem } from "@weblabs/sporte-design-system";
+import { NavItem, NavSubItem } from "@manasi-sys/sporte-design-system";
 
 <NavItem icon={<Icon name="dashboard" />} label="Dashboard" active />
 

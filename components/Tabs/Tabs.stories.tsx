@@ -17,7 +17,7 @@ persistent sidebar).
 ### Usage
 
 \`\`\`tsx
-import { Tabs } from "@weblabs/sporte-design-system";
+import { Tabs } from "@manasi-sys/sporte-design-system";
 
 const [value, setValue] = useState("overview");
 

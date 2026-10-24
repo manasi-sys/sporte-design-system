@@ -33,7 +33,7 @@ change again — check before re-applying a contrast fix that's already been rev
 ### Usage
 
 \`\`\`tsx
-import { Button } from "@weblabs/sporte-design-system";
+import { Button } from "@manasi-sys/sporte-design-system";
 
 <Button variant="primary">Save changes</Button>
 <Button variant="destructive" onClick={handleDelete}>Delete</Button>

@@ -16,6 +16,9 @@ export default defineConfig({
       external: ["react", "react-dom", "react/jsx-runtime"],
       output: {
         globals: { react: "React", "react-dom": "ReactDOM" },
+        // Vite names the lib-mode stylesheet style.css; package.json exports styles.css.
+        assetFileNames: (asset) =>
+          asset.name?.endsWith(".css") ? "styles.css" : "assets/[name]-[hash][extname]",
       },
     },
     cssCodeSplit: false,

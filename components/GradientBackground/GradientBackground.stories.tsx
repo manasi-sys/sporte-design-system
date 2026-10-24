@@ -30,7 +30,7 @@ bottom-right one stays on the bottom edge.
 ### Usage
 
 \`\`\`tsx
-import { GradientBackground, Card } from "@weblabs/sporte-design-system";
+import { GradientBackground, Card } from "@manasi-sys/sporte-design-system";
 
 <GradientBackground className="min-h-screen p-8">
   <Card>…dashboard content…</Card>

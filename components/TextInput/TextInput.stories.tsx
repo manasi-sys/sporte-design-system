@@ -18,7 +18,7 @@ the file, so they're derived here and called out below.
 ### Usage
 
 \`\`\`tsx
-import { TextInput } from "@weblabs/sporte-design-system";
+import { TextInput } from "@manasi-sys/sporte-design-system";
 
 <TextInput label="Email" placeholder="you@company.com" required />
 <TextInput label="Password" type="password" />

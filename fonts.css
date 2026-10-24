@@ -1,0 +1,4 @@
+/* Fonts for local development (Storybook). The published package ships these as files:
+   see scripts/build-fonts.mjs, which writes dist/fonts.css. */
+@import "material-symbols/outlined.css";
+@import "@fontsource-variable/inter/wght.css";
